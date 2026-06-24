@@ -20,6 +20,11 @@ const ACTIONS = {
         meaning: "insertion position / add position",
       },
     ],
+
+    vocab: {
+      位置: "position, location",
+      配置する: "to place, arrange, position",
+    },
   },
 
   日付入力ダイアログを表示する: {
@@ -53,6 +58,10 @@ const ACTIONS = {
         meaning: "initial value / default value",
       },
     ],
+    vocab: {
+      許可する: "to allow, permit",
+      初期値: "initial, beginning, startup",
+    },
   },
 
   選択肢から選択するダイアログを表示する: {
@@ -96,6 +105,13 @@ const ACTIONS = {
         meaning: "initial value / default value",
       },
     ],
+    vocab: {
+      選択肢: "options, choices",
+      選択する: "to select, choose",
+      未: "not yet / un-",
+      未選択: "unselected, no selection",
+      表す: "to represent, indicate, denote",
+    },
   },
 
   条件を組み立ててレコードを取得する: {
@@ -119,6 +135,14 @@ const ACTIONS = {
         meaning: "maximum number of records to retrieve",
       },
     ],
+    vocab: {
+      取得する: "to acquire, obtain, retrieve",
+      組み立てる: "to build, construct",
+      組み立てて: "assembling, constructing, building",
+      最大: "maximum",
+      取得: "acquisition, retrieval, fetching",
+      件数: "number of items/records",
+    },
   },
 
   レコード行数をカウントする: {
@@ -137,6 +161,11 @@ const ACTIONS = {
         meaning: "field to set the result (optional)",
       },
     ],
+    vocab: {
+      行数: "(ぎょうすう)	number of rows/lines",
+      省略: "(しょうりゃく)	omission, skipping",
+      可: "(か)	permitted, allowed",
+    },
   },
 
   レコードから重複を除去する: {
@@ -145,16 +174,20 @@ const ACTIONS = {
     meaning: "Remove duplicates from records.",
     parameters: [
       {
-        title: "売上先の得意先ID",
-        reading: "うりあげさきのとくいさきアイディー",
-        meaning: "customer ID of sales destination",
+        title: "レコード選択アクション",
+        reading: "レコードせんたくアクション",
+        meaning: "record selection action",
       },
       {
-        title: "重複データ",
-        reading: "ちょうふくデータ",
-        meaning: "duplicate data",
+        title: "キーとなるフィールド",
+        reading: "キーとなるフィールド",
+        meaning: "key field",
       },
     ],
+    vocab: {
+      重複: "(ちょうふく / じゅうふく) duplication, duplicate",
+      除去する: "(じょきょする) remove, eliminate",
+    },
   },
 
   読み込み中画面を表示する: {
@@ -181,6 +214,10 @@ const ACTIONS = {
         meaning: "list",
       },
     ],
+    vocab: {
+      要素: "(ようそ) element, item, component",
+      取り出す: "(とりだす) take out, extract, retrieve",
+    },
   },
 
   レコードを並べ替える: {
@@ -224,6 +261,13 @@ const ACTIONS = {
         meaning: "sort order (3)",
       },
     ],
+    vocab: {
+      並べ替える: "(ならべかえる) rearrange, reorder, sort",
+      並び: "(ならび)	arrangement, order, sequence",
+      順: "(じゅん) order, sequence, priority",
+      昇順: "（しょうじゅん） ascending order",
+      降順: "（こうじゅん） descending order",
+    },
   },
 
   レコードを書き出す: {
@@ -576,6 +620,16 @@ const ACTIONS = {
         meaning: "destination field to set the value (optional)",
       },
     ],
+    vocab: {
+      桁: "(けた)	digit, place (of a number)",
+      区切り: "(くぎり)	separator, division, delimiter",
+      桁区切り: "(けたくぎり) digit grouping, number separator",
+      整数部: "(せいすうぶ) integer part",
+      桁数: "(けたすう) number of digits",
+      ゼロ埋め: "(ぜろうめ) zero padding",
+      小数点: "(しょうすうてん) decimal point",
+      桁数: "(けたすう) number of digits",
+    },
   },
 
   日付を計算する: {
@@ -642,335 +696,8 @@ const ACTIONS = {
         title: "OKボタンの名前",
       },
     ],
+    vocab: {
+      警告: "(けいこく) warning, alert",
+    },
   },
 };
-
-/* 
-You are a senior full-stack software engineer.
-
-Build a COMPLETE production-ready AI Transcript Generator Web App.
-
-The app must allow users to upload a video from their local computer and generate a transcript automatically.
-
-I am NOT a programmer, so you must create EVERYTHING from scratch including:
-- frontend
-- backend
-- database
-- schema files
-- API
-- file upload handling
-- transcription logic
-- environment setup
-- scripts
-- run instructions
-- installation instructions
-- folder structure
-- Docker support
-- README
-- error handling
-- UI
-- server startup scripts
-
-====================================================
-TECH STACK
-====================================================
-
-Frontend:
-- React
-- TypeScript
-- Vite
-- TailwindCSS
-- Axios
-- React Query
-- Zustand
-- Dark Blue modern UI design
-
-Backend:
-- Node.js
-- Express
-- TypeScript
-- Prisma ORM
-- PostgreSQL
-- Multer for uploads
-- FFmpeg for audio extraction
-- OpenAI Whisper OR local Whisper transcription
-- REST API architecture
-
-Database:
-- PostgreSQL
-
-====================================================
-MAIN FEATURES
-====================================================
-
-1. Upload Video
-- User uploads local video file
-- Support:
-  - mp4
-  - mov
-  - avi
-  - mkv
-  - webm
-
-2. Extract Audio
-- Automatically extract audio from uploaded video using FFmpeg
-
-3. Generate Transcript
-- Convert speech to text
-- Save transcript in database
-- Show transcript on screen
-
-4. Transcript Viewer
-- Clean UI
-- Scrollable transcript panel
-- Timestamp support
-
-5. Download Transcript
-- TXT
-- SRT
-- JSON
-
-6. Video Upload Progress Bar
-
-7. Recent Transcript History
-
-8. Responsive Design
-
-9. Beautiful Dark Blue Theme
-Use:
-- background: #071120
-- cards: #0F172A
-- accent: #2563EB
-- text: #E2E8F0
-
-====================================================
-PROJECT STRUCTURE
-====================================================
-
-Create full monorepo structure:
-
-/transcript-generator
-  /client
-  /server
-
-====================================================
-FRONTEND REQUIREMENTS
-====================================================
-
-Use:
-- React + TypeScript
-- Vite
-- TailwindCSS
-
-Pages:
-1. Home Page
-2. Upload Page
-3. Transcript Result Page
-4. History Page
-
-Components:
-- Navbar
-- Sidebar
-- Upload Box
-- Drag & Drop Upload
-- Progress Bar
-- Transcript Card
-- Video Preview
-- Download Buttons
-- Loader
-- Toast Notifications
-
-Use modern animations.
-
-====================================================
-BACKEND REQUIREMENTS
-====================================================
-
-Create:
-- Express server
-- TypeScript setup
-- Prisma ORM
-- PostgreSQL integration
-
-APIs:
-POST /api/upload
-POST /api/transcribe
-GET /api/transcripts
-GET /api/transcripts/:id
-DELETE /api/transcripts/:id
-
-====================================================
-DATABASE REQUIREMENTS
-====================================================
-
-Create FULL Prisma schema file.
-
-Schema should include:
-
-Model: Transcript
-- id
-- filename
-- originalVideoPath
-- extractedAudioPath
-- transcriptText
-- transcriptJson
-- duration
-- createdAt
-
-Generate:
-- prisma/schema.prisma
-- migrations
-- database connection setup
-
-====================================================
-TRANSCRIPTION REQUIREMENTS
-====================================================
-
-Use OpenAI Whisper API OR local Whisper.
-
-Workflow:
-1. Upload video
-2. Save file
-3. Extract audio with FFmpeg
-4. Send audio to Whisper
-5. Receive transcript
-6. Save transcript in PostgreSQL
-7. Return transcript to frontend
-
-====================================================
-FILE STORAGE
-====================================================
-
-Create:
-- uploads/videos
-- uploads/audio
-- uploads/transcripts
-
-====================================================
-ERROR HANDLING
-====================================================
-
-Handle:
-- invalid file type
-- upload failure
-- FFmpeg failure
-- transcription failure
-- database failure
-- API failure
-
-====================================================
-SECURITY
-====================================================
-
-Add:
-- Helmet
-- CORS
-- Rate limiting
-- Environment variables
-- Secure upload validation
-
-====================================================
-DEVOPS
-====================================================
-
-Create:
-- Dockerfile for frontend
-- Dockerfile for backend
-- docker-compose.yml
-
-====================================================
-ENVIRONMENT FILES
-====================================================
-
-Generate:
-- .env.example
-- backend .env
-- frontend .env
-
-====================================================
-README REQUIREMENTS
-====================================================
-
-Create COMPLETE README with:
-- installation
-- dependencies
-- setup
-- PostgreSQL setup
-- Prisma migration
-- FFmpeg installation
-- how to run frontend
-- how to run backend
-- docker setup
-- troubleshooting
-
-====================================================
-AUTO SETUP REQUIREMENTS
-====================================================
-
-VERY IMPORTANT:
-I am not a developer.
-
-You must:
-- install dependencies
-- initialize React app
-- initialize Node app
-- configure TypeScript
-- configure Prisma
-- create database
-- run migrations
-- create all folders
-- setup TailwindCSS
-- configure Vite
-- run backend server
-- run frontend server
-
-Provide terminal commands step-by-step.
-
-====================================================
-UI REQUIREMENTS
-====================================================
-
-Design style:
-- modern SaaS
-- glassmorphism
-- dark blue gradient
-- smooth shadows
-- rounded cards
-- responsive mobile layout
-
-====================================================
-BONUS FEATURES
-====================================================
-
-If possible also add:
-- speaker detection
-- subtitle generation
-- AI summary of transcript
-- keyword extraction
-- transcript search
-- copy transcript button
-
-====================================================
-OUTPUT REQUIREMENTS
-====================================================
-
-Generate:
-1. Complete folder structure
-2. All source code
-3. Prisma schema
-4. SQL setup
-5. API routes
-6. Frontend pages
-7. Components
-8. Docker setup
-9. README
-10. Step-by-step setup instructions
-
-Do NOT skip any file.
-
-Generate production-quality clean code with comments.
-
-Explain every step because I am a beginner.
-
-
- */

@@ -22,6 +22,11 @@ const CONDITION = {
         meaning: "specified user",
       },
     ],
+    vocab: {
+      指定: "specification, designation",
+      指定する: "to specify, designate, assign",
+      指定の: "specified, designated",
+    },
   },
 
   ボタンを押した時: {
@@ -81,6 +86,15 @@ const CONDITION = {
         meaning: "number comparison method",
       },
     ],
+    vocab: {
+      値: "(あたい) value; data value",
+      比較: "comparison",
+      比較して: "Compare, by comparing, after comparing, compare and",
+      満たす: "to satisfy, fulfill, meet",
+      条件を満たす:
+        "satisfy the condition, meet the condition, fulfill the condition",
+      等しい: "(ひとしい) equal, equivalent, identical",
+    },
   },
 
   フィールド値が特定の値ならば: {
@@ -172,6 +186,9 @@ const CONDITION = {
         title: "アクション",
       },
     ],
+    vocab: {
+      いずれか: "any one of, either one of, one of the options",
+    },
   },
 
   他のアクションの実行が完了した時: {
